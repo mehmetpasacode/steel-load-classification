@@ -1,0 +1,138 @@
+{
+  "source": "encoding-extended.json",
+  "source_sha256": "6bc836c356bd8a68731bc5dfa5001a24dc75b9ef8ceff395c440b67285dd603d",
+  "dataset_sha256": "9b1cee6f9cb9cd9df2b95814ca90a9a2ff15b7f5f1fba0fae3c643e82072eacc",
+  "split_seed": 42,
+  "selection_rule": "Mean macro F1 on chronological validation across the three paired seeds; exact ties retain A.",
+  "encoding": "C",
+  "selection_summary": {
+    "random": {
+      "A": {
+        "accuracy": 0.8715753424657534,
+        "macro_f1": 0.8386066450403549,
+        "checkpoint_loss": 0.311047031813162,
+        "runtime": 44.67531969997799,
+        "patience_stops": 0,
+        "paired_f1": [
+          0.8385454076285551,
+          0.8381836490053954,
+          0.8390908784871142
+        ]
+      },
+      "C": {
+        "accuracy": 0.8711948249619482,
+        "macro_f1": 0.8373720382346974,
+        "checkpoint_loss": 0.3103879291459382,
+        "runtime": 41.200190800009295,
+        "patience_stops": 0,
+        "paired_f1": [
+          0.8379062501641844,
+          0.8384375250590637,
+          0.8357723394808442
+        ]
+      }
+    },
+    "chronological": {
+      "A": {
+        "accuracy": 0.9406906906906907,
+        "macro_f1": 0.9318002393685536,
+        "checkpoint_loss": 0.196791017133057,
+        "runtime": 21.61231699999189,
+        "patience_stops": 3,
+        "paired_f1": [
+          0.9302955750056481,
+          0.930905432986839,
+          0.9341997101131737
+        ]
+      },
+      "C": {
+        "accuracy": 0.9411599099099099,
+        "macro_f1": 0.9325648414099967,
+        "checkpoint_loss": 0.2025791679713909,
+        "runtime": 25.391990300006,
+        "patience_stops": 0,
+        "paired_f1": [
+          0.9297652028677641,
+          0.943782932498968,
+          0.924146388863258
+        ]
+      }
+    }
+  },
+  "fixed_runs": [
+    {
+      "split": "random",
+      "model": "neural",
+      "features": "electrical",
+      "encoded_columns": [
+        "numeric__Lagging_Current_Reactive.Power_kVarh",
+        "numeric__Leading_Current_Reactive_Power_kVarh",
+        "numeric__Lagging_Current_Power_Factor",
+        "numeric__Leading_Current_Power_Factor",
+        "numeric__NSM_sin",
+        "numeric__NSM_cos",
+        "calendar_categories__Day_of_week_Friday",
+        "calendar_categories__Day_of_week_Saturday",
+        "calendar_categories__Day_of_week_Sunday",
+        "calendar_categories__Day_of_week_Thursday",
+        "calendar_categories__Day_of_week_Tuesday",
+        "calendar_categories__Day_of_week_Wednesday"
+      ],
+      "class_order": [
+        "Light_Load",
+        "Medium_Load",
+        "Maximum_Load"
+      ],
+      "configuration": {
+        "learning_rate": 0.1,
+        "hidden_size": 32,
+        "hidden_activation": "relu",
+        "momentum": 0.9,
+        "loss": "cross_entropy",
+        "epoch_cap": 2000,
+        "patience": 30,
+        "seed": 42
+      },
+      "checkpoint_epoch": 2000,
+      "validation_accuracy": 0.8712899543378996,
+      "validation_macro_f1": 0.8379062501641844
+    },
+    {
+      "split": "chronological",
+      "model": "neural",
+      "features": "electrical",
+      "encoded_columns": [
+        "numeric__Lagging_Current_Reactive.Power_kVarh",
+        "numeric__Leading_Current_Reactive_Power_kVarh",
+        "numeric__Lagging_Current_Power_Factor",
+        "numeric__Leading_Current_Power_Factor",
+        "numeric__NSM_sin",
+        "numeric__NSM_cos",
+        "calendar_categories__Day_of_week_Friday",
+        "calendar_categories__Day_of_week_Saturday",
+        "calendar_categories__Day_of_week_Sunday",
+        "calendar_categories__Day_of_week_Thursday",
+        "calendar_categories__Day_of_week_Tuesday",
+        "calendar_categories__Day_of_week_Wednesday"
+      ],
+      "class_order": [
+        "Light_Load",
+        "Medium_Load",
+        "Maximum_Load"
+      ],
+      "configuration": {
+        "learning_rate": 0.1,
+        "hidden_size": 16,
+        "hidden_activation": "relu",
+        "momentum": 0.9,
+        "loss": "cross_entropy",
+        "epoch_cap": 2000,
+        "patience": 30,
+        "seed": 42
+      },
+      "checkpoint_epoch": 2000,
+      "validation_accuracy": 0.9383445945945946,
+      "validation_macro_f1": 0.9297652028677641
+    }
+  ]
+}

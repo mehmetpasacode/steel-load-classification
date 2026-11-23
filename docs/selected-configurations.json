@@ -1,0 +1,1091 @@
+{
+  "dataset_sha256": "9b1cee6f9cb9cd9df2b95814ca90a9a2ff15b7f5f1fba0fae3c643e82072eacc",
+  "split_seed": 42,
+  "selection_stage": "validation",
+  "splits": [
+    {
+      "split": "random",
+      "advance": {
+        "model": "calendar_schedule",
+        "features": "calendar",
+        "configuration": {
+          "keys": [
+            "weekday",
+            "seconds_since_midnight"
+          ],
+          "fallbacks": [
+            "seconds_since_midnight",
+            "training_majority"
+          ],
+          "tie_order": [
+            "Light_Load",
+            "Medium_Load",
+            "Maximum_Load"
+          ]
+        },
+        "reference_validation": {
+          "accuracy": 0.8496004566210046,
+          "macro_f1": 0.8172652819418228,
+          "per_class_recall": {
+            "Light_Load": 0.9186496956281129,
+            "Medium_Load": 0.8082474226804124,
+            "Maximum_Load": 0.7331499312242091
+          },
+          "class_order": [
+            "Light_Load",
+            "Medium_Load",
+            "Maximum_Load"
+          ],
+          "confusion_matrix": [
+            [
+              1660,
+              78,
+              69
+            ],
+            [
+              53,
+              784,
+              133
+            ],
+            [
+              44,
+              150,
+              533
+            ]
+          ]
+        }
+      },
+      "calendar_learned_comparison": {
+        "model": "knn",
+        "features": "calendar",
+        "configuration": {
+          "k": 31,
+          "reference_order": "native",
+          "distance": "squared Euclidean"
+        },
+        "reference_validation": {
+          "accuracy": 0.8496004566210046,
+          "macro_f1": 0.8172652819418228,
+          "per_class_recall": {
+            "Light_Load": 0.9186496956281129,
+            "Medium_Load": 0.8082474226804124,
+            "Maximum_Load": 0.7331499312242091
+          },
+          "class_order": [
+            "Light_Load",
+            "Medium_Load",
+            "Maximum_Load"
+          ],
+          "confusion_matrix": [
+            [
+              1660,
+              78,
+              69
+            ],
+            [
+              53,
+              784,
+              133
+            ],
+            [
+              44,
+              150,
+              533
+            ]
+          ]
+        },
+        "mean_validation_macro_f1": 0.8172652819418228
+      },
+      "same_interval": {
+        "model": "knn",
+        "features": "electrical",
+        "configuration": {
+          "k": 7,
+          "reference_order": "native",
+          "distance": "squared Euclidean"
+        },
+        "reference_validation": {
+          "accuracy": 0.8752853881278538,
+          "macro_f1": 0.84270196060952,
+          "per_class_recall": {
+            "Light_Load": 0.9618151632540122,
+            "Medium_Load": 0.8,
+            "Maximum_Load": 0.7606602475928473
+          },
+          "class_order": [
+            "Light_Load",
+            "Medium_Load",
+            "Maximum_Load"
+          ],
+          "confusion_matrix": [
+            [
+              1738,
+              62,
+              7
+            ],
+            [
+              56,
+              776,
+              138
+            ],
+            [
+              27,
+              147,
+              553
+            ]
+          ]
+        },
+        "mean_validation_macro_f1": 0.84270196060952
+      },
+      "selected_by_model_and_features": [
+        {
+          "model": "logistic",
+          "features": "calendar",
+          "configuration": {
+            "learning_rate": 0.3,
+            "l2": 0.0,
+            "momentum": 0.9,
+            "loss": "cross_entropy",
+            "epoch_cap": 600,
+            "patience": 30,
+            "seed": 42
+          },
+          "reference_validation": {
+            "accuracy": 0.7497146118721462,
+            "macro_f1": 0.6911978889476952,
+            "per_class_recall": {
+              "Light_Load": 0.9258439402324294,
+              "Medium_Load": 0.511340206185567,
+              "Maximum_Load": 0.6299862448418156
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1673,
+                76,
+                58
+              ],
+              [
+                239,
+                496,
+                235
+              ],
+              [
+                80,
+                189,
+                458
+              ]
+            ]
+          },
+          "mean_validation_macro_f1": 0.6911978889476952,
+          "checkpoint_epoch": 150
+        },
+        {
+          "model": "neural",
+          "features": "calendar",
+          "configuration": {
+            "learning_rate": 0.1,
+            "hidden_size": 32,
+            "hidden_activation": "relu",
+            "momentum": 0.9,
+            "loss": "cross_entropy",
+            "epoch_cap": 600,
+            "patience": 30,
+            "seed": 42
+          },
+          "reference_validation": {
+            "accuracy": 0.7993721461187214,
+            "macro_f1": 0.7531530708529338,
+            "per_class_recall": {
+              "Light_Load": 0.9230769230769231,
+              "Medium_Load": 0.6134020618556701,
+              "Maximum_Load": 0.7400275103163686
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1668,
+                56,
+                83
+              ],
+              [
+                103,
+                595,
+                272
+              ],
+              [
+                47,
+                142,
+                538
+              ]
+            ]
+          },
+          "mean_validation_macro_f1": 0.7533064260377742,
+          "checkpoint_epoch": 600
+        },
+        {
+          "model": "knn",
+          "features": "calendar",
+          "configuration": {
+            "k": 31,
+            "reference_order": "native",
+            "distance": "squared Euclidean"
+          },
+          "reference_validation": {
+            "accuracy": 0.8496004566210046,
+            "macro_f1": 0.8172652819418228,
+            "per_class_recall": {
+              "Light_Load": 0.9186496956281129,
+              "Medium_Load": 0.8082474226804124,
+              "Maximum_Load": 0.7331499312242091
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1660,
+                78,
+                69
+              ],
+              [
+                53,
+                784,
+                133
+              ],
+              [
+                44,
+                150,
+                533
+              ]
+            ]
+          },
+          "mean_validation_macro_f1": 0.8172652819418228
+        },
+        {
+          "model": "logistic",
+          "features": "electrical-only",
+          "configuration": {
+            "learning_rate": 0.3,
+            "l2": 0.0,
+            "momentum": 0.9,
+            "loss": "cross_entropy",
+            "epoch_cap": 600,
+            "patience": 30,
+            "seed": 42
+          },
+          "reference_validation": {
+            "accuracy": 0.7228881278538812,
+            "macro_f1": 0.6485333055831274,
+            "per_class_recall": {
+              "Light_Load": 0.9153292750415053,
+              "Medium_Load": 0.3443298969072165,
+              "Maximum_Load": 0.749656121045392
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1654,
+                74,
+                79
+              ],
+              [
+                219,
+                334,
+                417
+              ],
+              [
+                47,
+                135,
+                545
+              ]
+            ]
+          },
+          "mean_validation_macro_f1": 0.6488395929501789,
+          "checkpoint_epoch": 600
+        },
+        {
+          "model": "neural",
+          "features": "electrical-only",
+          "configuration": {
+            "learning_rate": 0.1,
+            "hidden_size": 32,
+            "hidden_activation": "relu",
+            "momentum": 0.9,
+            "loss": "cross_entropy",
+            "epoch_cap": 600,
+            "patience": 30,
+            "seed": 42
+          },
+          "reference_validation": {
+            "accuracy": 0.7243150684931506,
+            "macro_f1": 0.6518986006186172,
+            "per_class_recall": {
+              "Light_Load": 0.9214167127836193,
+              "Medium_Load": 0.37731958762886597,
+              "Maximum_Load": 0.6973865199449794
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1665,
+                81,
+                61
+              ],
+              [
+                221,
+                366,
+                383
+              ],
+              [
+                59,
+                161,
+                507
+              ]
+            ]
+          },
+          "mean_validation_macro_f1": 0.6530645530793415,
+          "checkpoint_epoch": 600
+        },
+        {
+          "model": "knn",
+          "features": "electrical-only",
+          "configuration": {
+            "k": 47,
+            "reference_order": "native",
+            "distance": "squared Euclidean"
+          },
+          "reference_validation": {
+            "accuracy": 0.7511415525114156,
+            "macro_f1": 0.6870935588249026,
+            "per_class_recall": {
+              "Light_Load": 0.9297177642501383,
+              "Medium_Load": 0.5371134020618556,
+              "Maximum_Load": 0.5928473177441541
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1680,
+                81,
+                46
+              ],
+              [
+                176,
+                521,
+                273
+              ],
+              [
+                44,
+                252,
+                431
+              ]
+            ]
+          },
+          "mean_validation_macro_f1": 0.6870935588249026
+        },
+        {
+          "model": "logistic",
+          "features": "electrical",
+          "configuration": {
+            "learning_rate": 0.3,
+            "l2": 0.0,
+            "momentum": 0.9,
+            "loss": "cross_entropy",
+            "epoch_cap": 600,
+            "patience": 30,
+            "seed": 42
+          },
+          "reference_validation": {
+            "accuracy": 0.7902397260273972,
+            "macro_f1": 0.7458809652855217,
+            "per_class_recall": {
+              "Light_Load": 0.9324847814056447,
+              "Medium_Load": 0.5474226804123712,
+              "Maximum_Load": 0.7606602475928473
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1685,
+                121,
+                1
+              ],
+              [
+                215,
+                531,
+                224
+              ],
+              [
+                26,
+                148,
+                553
+              ]
+            ]
+          },
+          "mean_validation_macro_f1": 0.7458809652855217,
+          "checkpoint_epoch": 600
+        },
+        {
+          "model": "neural",
+          "features": "electrical",
+          "configuration": {
+            "learning_rate": 0.1,
+            "hidden_size": 32,
+            "hidden_activation": "relu",
+            "momentum": 0.9,
+            "loss": "cross_entropy",
+            "epoch_cap": 600,
+            "patience": 30,
+            "seed": 42
+          },
+          "reference_validation": {
+            "accuracy": 0.8598744292237442,
+            "macro_f1": 0.8250421335859907,
+            "per_class_recall": {
+              "Light_Load": 0.9562811289429994,
+              "Medium_Load": 0.7525773195876289,
+              "Maximum_Load": 0.7634112792297112
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1728,
+                76,
+                3
+              ],
+              [
+                78,
+                730,
+                162
+              ],
+              [
+                16,
+                156,
+                555
+              ]
+            ]
+          },
+          "mean_validation_macro_f1": 0.8272267011128699,
+          "checkpoint_epoch": 600
+        },
+        {
+          "model": "knn",
+          "features": "electrical",
+          "configuration": {
+            "k": 7,
+            "reference_order": "native",
+            "distance": "squared Euclidean"
+          },
+          "reference_validation": {
+            "accuracy": 0.8752853881278538,
+            "macro_f1": 0.84270196060952,
+            "per_class_recall": {
+              "Light_Load": 0.9618151632540122,
+              "Medium_Load": 0.8,
+              "Maximum_Load": 0.7606602475928473
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1738,
+                62,
+                7
+              ],
+              [
+                56,
+                776,
+                138
+              ],
+              [
+                27,
+                147,
+                553
+              ]
+            ]
+          },
+          "mean_validation_macro_f1": 0.84270196060952
+        }
+      ]
+    },
+    {
+      "split": "chronological",
+      "advance": {
+        "model": "calendar_schedule",
+        "features": "calendar",
+        "configuration": {
+          "keys": [
+            "weekday",
+            "seconds_since_midnight"
+          ],
+          "fallbacks": [
+            "seconds_since_midnight",
+            "training_majority"
+          ],
+          "tie_order": [
+            "Light_Load",
+            "Medium_Load",
+            "Maximum_Load"
+          ]
+        },
+        "reference_validation": {
+          "accuracy": 0.9369369369369369,
+          "macro_f1": 0.9356125356125355,
+          "per_class_recall": {
+            "Light_Load": 0.8870967741935484,
+            "Medium_Load": 1.0,
+            "Maximum_Load": 1.0
+          },
+          "class_order": [
+            "Light_Load",
+            "Medium_Load",
+            "Maximum_Load"
+          ],
+          "confusion_matrix": [
+            [
+              1760,
+              128,
+              96
+            ],
+            [
+              0,
+              896,
+              0
+            ],
+            [
+              0,
+              0,
+              672
+            ]
+          ]
+        }
+      },
+      "calendar_learned_comparison": {
+        "model": "knn",
+        "features": "calendar",
+        "configuration": {
+          "k": 25,
+          "reference_order": "native",
+          "distance": "squared Euclidean"
+        },
+        "reference_validation": {
+          "accuracy": 0.9369369369369369,
+          "macro_f1": 0.9356125356125355,
+          "per_class_recall": {
+            "Light_Load": 0.8870967741935484,
+            "Medium_Load": 1.0,
+            "Maximum_Load": 1.0
+          },
+          "class_order": [
+            "Light_Load",
+            "Medium_Load",
+            "Maximum_Load"
+          ],
+          "confusion_matrix": [
+            [
+              1760,
+              128,
+              96
+            ],
+            [
+              0,
+              896,
+              0
+            ],
+            [
+              0,
+              0,
+              672
+            ]
+          ]
+        },
+        "mean_validation_macro_f1": 0.9356125356125355
+      },
+      "same_interval": {
+        "model": "neural",
+        "features": "electrical",
+        "configuration": {
+          "learning_rate": 0.1,
+          "hidden_size": 16,
+          "hidden_activation": "relu",
+          "momentum": 0.9,
+          "loss": "cross_entropy",
+          "epoch_cap": 600,
+          "patience": 30,
+          "seed": 42
+        },
+        "reference_validation": {
+          "accuracy": 0.9324324324324325,
+          "macro_f1": 0.926569577924683,
+          "per_class_recall": {
+            "Light_Load": 0.9445564516129032,
+            "Medium_Load": 0.8727678571428571,
+            "Maximum_Load": 0.9761904761904762
+          },
+          "class_order": [
+            "Light_Load",
+            "Medium_Load",
+            "Maximum_Load"
+          ],
+          "confusion_matrix": [
+            [
+              1874,
+              110,
+              0
+            ],
+            [
+              74,
+              782,
+              40
+            ],
+            [
+              2,
+              14,
+              656
+            ]
+          ]
+        },
+        "mean_validation_macro_f1": 0.9262399640284985,
+        "checkpoint_epoch": 600
+      },
+      "selected_by_model_and_features": [
+        {
+          "model": "logistic",
+          "features": "calendar",
+          "configuration": {
+            "learning_rate": 0.3,
+            "l2": 0.0,
+            "momentum": 0.9,
+            "loss": "cross_entropy",
+            "epoch_cap": 600,
+            "patience": 30,
+            "seed": 42
+          },
+          "reference_validation": {
+            "accuracy": 0.8170045045045045,
+            "macro_f1": 0.7906154963959772,
+            "per_class_recall": {
+              "Light_Load": 0.8538306451612904,
+              "Medium_Load": 0.6741071428571429,
+              "Maximum_Load": 0.8988095238095238
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1694,
+                142,
+                148
+              ],
+              [
+                172,
+                604,
+                120
+              ],
+              [
+                16,
+                52,
+                604
+              ]
+            ]
+          },
+          "mean_validation_macro_f1": 0.7906154963959772,
+          "checkpoint_epoch": 600
+        },
+        {
+          "model": "neural",
+          "features": "calendar",
+          "configuration": {
+            "learning_rate": 0.1,
+            "hidden_size": 16,
+            "hidden_activation": "relu",
+            "momentum": 0.9,
+            "loss": "cross_entropy",
+            "epoch_cap": 600,
+            "patience": 30,
+            "seed": 42
+          },
+          "reference_validation": {
+            "accuracy": 0.8978040540540541,
+            "macro_f1": 0.8825794532574044,
+            "per_class_recall": {
+              "Light_Load": 0.889616935483871,
+              "Medium_Load": 0.8392857142857143,
+              "Maximum_Load": 1.0
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1765,
+                107,
+                112
+              ],
+              [
+                32,
+                752,
+                112
+              ],
+              [
+                0,
+                0,
+                672
+              ]
+            ]
+          },
+          "mean_validation_macro_f1": 0.8736037404180109,
+          "checkpoint_epoch": 600
+        },
+        {
+          "model": "knn",
+          "features": "calendar",
+          "configuration": {
+            "k": 25,
+            "reference_order": "native",
+            "distance": "squared Euclidean"
+          },
+          "reference_validation": {
+            "accuracy": 0.9369369369369369,
+            "macro_f1": 0.9356125356125355,
+            "per_class_recall": {
+              "Light_Load": 0.8870967741935484,
+              "Medium_Load": 1.0,
+              "Maximum_Load": 1.0
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1760,
+                128,
+                96
+              ],
+              [
+                0,
+                896,
+                0
+              ],
+              [
+                0,
+                0,
+                672
+              ]
+            ]
+          },
+          "mean_validation_macro_f1": 0.9356125356125355
+        },
+        {
+          "model": "logistic",
+          "features": "electrical-only",
+          "configuration": {
+            "learning_rate": 0.3,
+            "l2": 0.0,
+            "momentum": 0.9,
+            "loss": "cross_entropy",
+            "epoch_cap": 600,
+            "patience": 30,
+            "seed": 42
+          },
+          "reference_validation": {
+            "accuracy": 0.7621058558558559,
+            "macro_f1": 0.6414827962604338,
+            "per_class_recall": {
+              "Light_Load": 0.9753024193548387,
+              "Medium_Load": 0.19866071428571427,
+              "Maximum_Load": 0.8839285714285714
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1935,
+                5,
+                44
+              ],
+              [
+                354,
+                178,
+                364
+              ],
+              [
+                23,
+                55,
+                594
+              ]
+            ]
+          },
+          "mean_validation_macro_f1": 0.6416949869399295,
+          "checkpoint_epoch": 600
+        },
+        {
+          "model": "neural",
+          "features": "electrical-only",
+          "configuration": {
+            "learning_rate": 0.1,
+            "hidden_size": 16,
+            "hidden_activation": "tanh",
+            "momentum": 0.9,
+            "loss": "cross_entropy",
+            "epoch_cap": 600,
+            "patience": 30,
+            "seed": 42
+          },
+          "reference_validation": {
+            "accuracy": 0.7587274774774775,
+            "macro_f1": 0.6565449514090121,
+            "per_class_recall": {
+              "Light_Load": 0.9753024193548387,
+              "Medium_Load": 0.28013392857142855,
+              "Maximum_Load": 0.7574404761904762
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1935,
+                11,
+                38
+              ],
+              [
+                375,
+                251,
+                270
+              ],
+              [
+                51,
+                112,
+                509
+              ]
+            ]
+          },
+          "mean_validation_macro_f1": 0.6560590709411228,
+          "checkpoint_epoch": 600
+        },
+        {
+          "model": "knn",
+          "features": "electrical-only",
+          "configuration": {
+            "k": 17,
+            "reference_order": "native",
+            "distance": "squared Euclidean"
+          },
+          "reference_validation": {
+            "accuracy": 0.7108671171171171,
+            "macro_f1": 0.6545559266507079,
+            "per_class_recall": {
+              "Light_Load": 0.8155241935483871,
+              "Medium_Load": 0.3984375,
+              "Maximum_Load": 0.8184523809523809
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1618,
+                325,
+                41
+              ],
+              [
+                225,
+                357,
+                314
+              ],
+              [
+                19,
+                103,
+                550
+              ]
+            ]
+          },
+          "mean_validation_macro_f1": 0.6546843003803842
+        },
+        {
+          "model": "logistic",
+          "features": "electrical",
+          "configuration": {
+            "learning_rate": 0.3,
+            "l2": 0.0,
+            "momentum": 0.9,
+            "loss": "cross_entropy",
+            "epoch_cap": 600,
+            "patience": 30,
+            "seed": 42
+          },
+          "reference_validation": {
+            "accuracy": 0.8628941441441441,
+            "macro_f1": 0.8393225292151504,
+            "per_class_recall": {
+              "Light_Load": 0.9269153225806451,
+              "Medium_Load": 0.6339285714285714,
+              "Maximum_Load": 0.9791666666666666
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1839,
+                145,
+                0
+              ],
+              [
+                203,
+                568,
+                125
+              ],
+              [
+                0,
+                14,
+                658
+              ]
+            ]
+          },
+          "mean_validation_macro_f1": 0.8393225292151504,
+          "checkpoint_epoch": 600
+        },
+        {
+          "model": "neural",
+          "features": "electrical",
+          "configuration": {
+            "learning_rate": 0.1,
+            "hidden_size": 16,
+            "hidden_activation": "relu",
+            "momentum": 0.9,
+            "loss": "cross_entropy",
+            "epoch_cap": 600,
+            "patience": 30,
+            "seed": 42
+          },
+          "reference_validation": {
+            "accuracy": 0.9324324324324325,
+            "macro_f1": 0.926569577924683,
+            "per_class_recall": {
+              "Light_Load": 0.9445564516129032,
+              "Medium_Load": 0.8727678571428571,
+              "Maximum_Load": 0.9761904761904762
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1874,
+                110,
+                0
+              ],
+              [
+                74,
+                782,
+                40
+              ],
+              [
+                2,
+                14,
+                656
+              ]
+            ]
+          },
+          "mean_validation_macro_f1": 0.9262399640284985,
+          "checkpoint_epoch": 600
+        },
+        {
+          "model": "knn",
+          "features": "electrical",
+          "configuration": {
+            "k": 15,
+            "reference_order": "native",
+            "distance": "squared Euclidean"
+          },
+          "reference_validation": {
+            "accuracy": 0.9101914414414415,
+            "macro_f1": 0.9074441556442044,
+            "per_class_recall": {
+              "Light_Load": 0.9027217741935484,
+              "Medium_Load": 0.8895089285714286,
+              "Maximum_Load": 0.9598214285714286
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1791,
+                193,
+                0
+              ],
+              [
+                63,
+                797,
+                36
+              ],
+              [
+                12,
+                15,
+                645
+              ]
+            ]
+          },
+          "mean_validation_macro_f1": 0.9074441556442044
+        }
+      ]
+    }
+  ]
+}

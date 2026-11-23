@@ -1,0 +1,796 @@
+{
+  "status": "complete",
+  "dataset_sha256": "9b1cee6f9cb9cd9df2b95814ca90a9a2ff15b7f5f1fba0fae3c643e82072eacc",
+  "frozen_source_sha256": {
+    "encoding-extended-frozen.json": "0d4910e1a493c8d5f608377267af5cfbbe7d6cc06d828d6703fcefca7041e7c3",
+    "selected-configurations.json": "bf8511f9a1a830df8c1720b6921e870aa044ade7974b295de5b0ad9cbcf82cad",
+    "encoding-extended.json": "6bc836c356bd8a68731bc5dfa5001a24dc75b9ef8ceff395c440b67285dd603d"
+  },
+  "seed": 42,
+  "blas_threads": 1,
+  "knn_executable_sha256": "992e5f8a55d3eca29cdfd494f330601a9f9f190b44f6228f9611ec11fec5f589",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "python": "3.10.11",
+  "numpy": "2.2.6",
+  "pandas": "2.3.3",
+  "scikit_learn": "1.7.2",
+  "wall_seconds": 92.79225060000317,
+  "results": [
+    {
+      "split": "random",
+      "rows": {
+        "train": 24528,
+        "validation": 3504,
+        "test": 7008
+      },
+      "preprocessing": {
+        "fit_and_validation_transform_seconds": 0.04648210000596009,
+        "test_transform_seconds": 0.013921600009780377,
+        "fit_rows": 24528,
+        "combined_columns": [
+          "numeric__Lagging_Current_Reactive.Power_kVarh",
+          "numeric__Leading_Current_Reactive_Power_kVarh",
+          "numeric__Lagging_Current_Power_Factor",
+          "numeric__Leading_Current_Power_Factor",
+          "numeric__NSM_sin",
+          "numeric__NSM_cos",
+          "calendar_categories__WeekStatus_Weekday",
+          "calendar_categories__WeekStatus_Weekend",
+          "calendar_categories__Day_of_week_Friday",
+          "calendar_categories__Day_of_week_Monday",
+          "calendar_categories__Day_of_week_Saturday",
+          "calendar_categories__Day_of_week_Sunday",
+          "calendar_categories__Day_of_week_Thursday",
+          "calendar_categories__Day_of_week_Tuesday",
+          "calendar_categories__Day_of_week_Wednesday"
+        ]
+      },
+      "models": {
+        "neural": {
+          "configuration": {
+            "learning_rate": 0.1,
+            "hidden_size": 32,
+            "hidden_activation": "relu",
+            "momentum": 0.9,
+            "loss": "cross_entropy",
+            "epoch_cap": 2000,
+            "patience": 30,
+            "seed": 42
+          },
+          "fit_seconds": 49.52759230000083,
+          "checkpoint_epoch": 2000,
+          "epochs_run": 2000,
+          "checkpoint_validation_loss": 0.31135625129701633,
+          "reproduced_validation": {
+            "accuracy": 0.8712899543378996,
+            "macro_f1": 0.8379062501641844,
+            "per_class_recall": {
+              "Light_Load": 0.9618151632540122,
+              "Medium_Load": 0.7639175257731958,
+              "Maximum_Load": 0.7895460797799174
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1738,
+                61,
+                8
+              ],
+              [
+                60,
+                741,
+                169
+              ],
+              [
+                21,
+                132,
+                574
+              ]
+            ]
+          },
+          "features": "electrical",
+          "encoding": "C",
+          "input_columns": 12,
+          "prediction_seconds": 0.0032521999964956194,
+          "test": {
+            "accuracy": 0.8717180365296804,
+            "macro_f1": 0.838555135094269,
+            "per_class_recall": {
+              "Light_Load": 0.9612724757952974,
+              "Medium_Load": 0.7493553378029912,
+              "Maximum_Load": 0.812242090784044
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                3475,
+                129,
+                11
+              ],
+              [
+                117,
+                1453,
+                369
+              ],
+              [
+                28,
+                245,
+                1181
+              ]
+            ]
+          }
+        },
+        "logistic": {
+          "configuration": {
+            "learning_rate": 0.3,
+            "l2": 0.0,
+            "momentum": 0.9,
+            "loss": "cross_entropy",
+            "epoch_cap": 600,
+            "patience": 30,
+            "seed": 42
+          },
+          "fit_seconds": 3.1244229000003543,
+          "checkpoint_epoch": 600,
+          "epochs_run": 600,
+          "checkpoint_validation_loss": 0.488889301641524,
+          "reproduced_validation": {
+            "accuracy": 0.7902397260273972,
+            "macro_f1": 0.7458809652855217,
+            "per_class_recall": {
+              "Light_Load": 0.9324847814056447,
+              "Medium_Load": 0.5474226804123712,
+              "Maximum_Load": 0.7606602475928473
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1685,
+                121,
+                1
+              ],
+              [
+                215,
+                531,
+                224
+              ],
+              [
+                26,
+                148,
+                553
+              ]
+            ]
+          },
+          "features": "electrical",
+          "input_columns": 15,
+          "prediction_seconds": 0.0009673000022303313,
+          "test": {
+            "accuracy": 0.7968036529680366,
+            "macro_f1": 0.7512980340680402,
+            "per_class_recall": {
+              "Light_Load": 0.9377593360995851,
+              "Medium_Load": 0.5482207323362558,
+              "Maximum_Load": 0.7778541953232462
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                3390,
+                223,
+                2
+              ],
+              [
+                384,
+                1063,
+                492
+              ],
+              [
+                51,
+                272,
+                1131
+              ]
+            ]
+          }
+        },
+        "knn": {
+          "configuration": {
+            "k": 7,
+            "reference_order": "native",
+            "distance": "squared Euclidean"
+          },
+          "features": "electrical",
+          "input_columns": 15,
+          "fit_seconds": 0.0,
+          "reference_rows": 24528,
+          "reproduced_validation": {
+            "accuracy": 0.8752853881278538,
+            "macro_f1": 0.84270196060952,
+            "per_class_recall": {
+              "Light_Load": 0.9618151632540122,
+              "Medium_Load": 0.8,
+              "Maximum_Load": 0.7606602475928473
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1738,
+                62,
+                7
+              ],
+              [
+                56,
+                776,
+                138
+              ],
+              [
+                27,
+                147,
+                553
+              ]
+            ]
+          },
+          "prediction_seconds": 2.8041195000114385,
+          "test": {
+            "accuracy": 0.8747146118721462,
+            "macro_f1": 0.841519320638374,
+            "per_class_recall": {
+              "Light_Load": 0.9609958506224067,
+              "Medium_Load": 0.7931923671995874,
+              "Maximum_Load": 0.7689133425034388
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                3474,
+                128,
+                13
+              ],
+              [
+                100,
+                1538,
+                301
+              ],
+              [
+                42,
+                294,
+                1118
+              ]
+            ]
+          }
+        },
+        "majority": {
+          "configuration": {
+            "label": "Light_Load"
+          },
+          "features": "none",
+          "fit_seconds": 3.649998689070344e-05,
+          "prediction_seconds": 2.069998299703002e-05,
+          "test": {
+            "accuracy": 0.5158390410958904,
+            "macro_f1": 0.22686623364398004,
+            "per_class_recall": {
+              "Light_Load": 1.0,
+              "Medium_Load": 0.0,
+              "Maximum_Load": 0.0
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                3615,
+                0,
+                0
+              ],
+              [
+                1939,
+                0,
+                0
+              ],
+              [
+                1454,
+                0,
+                0
+              ]
+            ]
+          }
+        },
+        "calendar_schedule": {
+          "configuration": {
+            "keys": [
+              "weekday",
+              "seconds_since_midnight"
+            ],
+            "fallbacks": [
+              "seconds_since_midnight",
+              "training_majority"
+            ],
+            "tie_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ]
+          },
+          "features": "calendar",
+          "reproduced_validation": {
+            "accuracy": 0.8496004566210046,
+            "macro_f1": 0.8172652819418228,
+            "per_class_recall": {
+              "Light_Load": 0.9186496956281129,
+              "Medium_Load": 0.8082474226804124,
+              "Maximum_Load": 0.7331499312242091
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1660,
+                78,
+                69
+              ],
+              [
+                53,
+                784,
+                133
+              ],
+              [
+                44,
+                150,
+                533
+              ]
+            ]
+          },
+          "fit_and_prediction_seconds": 0.04989600001135841,
+          "test": {
+            "accuracy": 0.8466038812785388,
+            "macro_f1": 0.815046143623554,
+            "per_class_recall": {
+              "Light_Load": 0.9131396957123098,
+              "Medium_Load": 0.7947395564724085,
+              "Maximum_Load": 0.750343878954608
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                3301,
+                188,
+                126
+              ],
+              [
+                102,
+                1541,
+                296
+              ],
+              [
+                73,
+                290,
+                1091
+              ]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "split": "chronological",
+      "rows": {
+        "train": 24480,
+        "validation": 3552,
+        "test": 7008
+      },
+      "preprocessing": {
+        "fit_and_validation_transform_seconds": 0.04634729999816045,
+        "test_transform_seconds": 0.011653099994873628,
+        "fit_rows": 24480,
+        "combined_columns": [
+          "numeric__Lagging_Current_Reactive.Power_kVarh",
+          "numeric__Leading_Current_Reactive_Power_kVarh",
+          "numeric__Lagging_Current_Power_Factor",
+          "numeric__Leading_Current_Power_Factor",
+          "numeric__NSM_sin",
+          "numeric__NSM_cos",
+          "calendar_categories__WeekStatus_Weekday",
+          "calendar_categories__WeekStatus_Weekend",
+          "calendar_categories__Day_of_week_Friday",
+          "calendar_categories__Day_of_week_Monday",
+          "calendar_categories__Day_of_week_Saturday",
+          "calendar_categories__Day_of_week_Sunday",
+          "calendar_categories__Day_of_week_Thursday",
+          "calendar_categories__Day_of_week_Tuesday",
+          "calendar_categories__Day_of_week_Wednesday"
+        ]
+      },
+      "models": {
+        "neural": {
+          "configuration": {
+            "learning_rate": 0.1,
+            "hidden_size": 16,
+            "hidden_activation": "relu",
+            "momentum": 0.9,
+            "loss": "cross_entropy",
+            "epoch_cap": 2000,
+            "patience": 30,
+            "seed": 42
+          },
+          "fit_seconds": 27.58545569999842,
+          "checkpoint_epoch": 2000,
+          "epochs_run": 2000,
+          "checkpoint_validation_loss": 0.20207503291162396,
+          "reproduced_validation": {
+            "accuracy": 0.9383445945945946,
+            "macro_f1": 0.9297652028677641,
+            "per_class_recall": {
+              "Light_Load": 0.9637096774193549,
+              "Medium_Load": 0.8560267857142857,
+              "Maximum_Load": 0.9732142857142857
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1912,
+                72,
+                0
+              ],
+              [
+                78,
+                767,
+                51
+              ],
+              [
+                8,
+                10,
+                654
+              ]
+            ]
+          },
+          "features": "electrical",
+          "encoding": "C",
+          "input_columns": 12,
+          "prediction_seconds": 0.0019617000070866197,
+          "test": {
+            "accuracy": 0.7480022831050228,
+            "macro_f1": 0.6560591101754077,
+            "per_class_recall": {
+              "Light_Load": 0.9597732181425486,
+              "Medium_Load": 0.5492584745762712,
+              "Maximum_Load": 0.4590395480225989
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                3555,
+                144,
+                5
+              ],
+              [
+                80,
+                1037,
+                771
+              ],
+              [
+                84,
+                682,
+                650
+              ]
+            ]
+          }
+        },
+        "logistic": {
+          "configuration": {
+            "learning_rate": 0.3,
+            "l2": 0.0,
+            "momentum": 0.9,
+            "loss": "cross_entropy",
+            "epoch_cap": 600,
+            "patience": 30,
+            "seed": 42
+          },
+          "fit_seconds": 2.830100000021048,
+          "checkpoint_epoch": 600,
+          "epochs_run": 600,
+          "checkpoint_validation_loss": 0.3630309919166798,
+          "reproduced_validation": {
+            "accuracy": 0.8628941441441441,
+            "macro_f1": 0.8393225292151504,
+            "per_class_recall": {
+              "Light_Load": 0.9269153225806451,
+              "Medium_Load": 0.6339285714285714,
+              "Maximum_Load": 0.9791666666666666
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1839,
+                145,
+                0
+              ],
+              [
+                203,
+                568,
+                125
+              ],
+              [
+                0,
+                14,
+                658
+              ]
+            ]
+          },
+          "features": "electrical",
+          "input_columns": 15,
+          "prediction_seconds": 0.0008845999836921692,
+          "test": {
+            "accuracy": 0.6832191780821918,
+            "macro_f1": 0.5959617937068445,
+            "per_class_recall": {
+              "Light_Load": 0.896328293736501,
+              "Medium_Load": 0.4099576271186441,
+              "Maximum_Load": 0.4901129943502825
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                3320,
+                379,
+                5
+              ],
+              [
+                215,
+                774,
+                899
+              ],
+              [
+                99,
+                623,
+                694
+              ]
+            ]
+          }
+        },
+        "knn": {
+          "configuration": {
+            "k": 15,
+            "reference_order": "native",
+            "distance": "squared Euclidean"
+          },
+          "features": "electrical",
+          "input_columns": 15,
+          "fit_seconds": 0.0,
+          "reference_rows": 24480,
+          "reproduced_validation": {
+            "accuracy": 0.9101914414414415,
+            "macro_f1": 0.9074441556442044,
+            "per_class_recall": {
+              "Light_Load": 0.9027217741935484,
+              "Medium_Load": 0.8895089285714286,
+              "Maximum_Load": 0.9598214285714286
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1791,
+                193,
+                0
+              ],
+              [
+                63,
+                797,
+                36
+              ],
+              [
+                12,
+                15,
+                645
+              ]
+            ]
+          },
+          "prediction_seconds": 2.7646632000105456,
+          "test": {
+            "accuracy": 0.7353025114155252,
+            "macro_f1": 0.6495978460124038,
+            "per_class_recall": {
+              "Light_Load": 0.9295356371490281,
+              "Medium_Load": 0.5614406779661016,
+              "Maximum_Load": 0.4590395480225989
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                3443,
+                254,
+                7
+              ],
+              [
+                70,
+                1060,
+                758
+              ],
+              [
+                128,
+                638,
+                650
+              ]
+            ]
+          }
+        },
+        "majority": {
+          "configuration": {
+            "label": "Light_Load"
+          },
+          "features": "none",
+          "fit_seconds": 4.290000651963055e-05,
+          "prediction_seconds": 1.5900004655122757e-05,
+          "test": {
+            "accuracy": 0.5285388127853882,
+            "macro_f1": 0.23052028877271594,
+            "per_class_recall": {
+              "Light_Load": 1.0,
+              "Medium_Load": 0.0,
+              "Maximum_Load": 0.0
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                3704,
+                0,
+                0
+              ],
+              [
+                1888,
+                0,
+                0
+              ],
+              [
+                1416,
+                0,
+                0
+              ]
+            ]
+          }
+        },
+        "calendar_schedule": {
+          "configuration": {
+            "keys": [
+              "weekday",
+              "seconds_since_midnight"
+            ],
+            "fallbacks": [
+              "seconds_since_midnight",
+              "training_majority"
+            ],
+            "tie_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ]
+          },
+          "features": "calendar",
+          "reproduced_validation": {
+            "accuracy": 0.9369369369369369,
+            "macro_f1": 0.9356125356125355,
+            "per_class_recall": {
+              "Light_Load": 0.8870967741935484,
+              "Medium_Load": 1.0,
+              "Maximum_Load": 1.0
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                1760,
+                128,
+                96
+              ],
+              [
+                0,
+                896,
+                0
+              ],
+              [
+                0,
+                0,
+                672
+              ]
+            ]
+          },
+          "fit_and_prediction_seconds": 0.05279509999672882,
+          "test": {
+            "accuracy": 0.7180365296803652,
+            "macro_f1": 0.631524689385061,
+            "per_class_recall": {
+              "Light_Load": 0.9092872570194385,
+              "Medium_Load": 0.559322033898305,
+              "Maximum_Load": 0.4293785310734463
+            },
+            "class_order": [
+              "Light_Load",
+              "Medium_Load",
+              "Maximum_Load"
+            ],
+            "confusion_matrix": [
+              [
+                3368,
+                192,
+                144
+              ],
+              [
+                96,
+                1056,
+                736
+              ],
+              [
+                72,
+                736,
+                608
+              ]
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
